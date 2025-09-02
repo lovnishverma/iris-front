@@ -273,6 +273,7 @@ form.addEventListener('submit', async (e) => {
         displayError(error.message || 'Failed to get prediction. Please check your connection and try again.');
     } finally {
         setButtonLoading(false);
+        console.log('Loading state reset');
     }
 });
 
