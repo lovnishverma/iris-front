@@ -148,8 +148,6 @@ graph TB
    ├── style.css           # Styling and responsive design
    ├── script.js           # JavaScript logic and API calls
    ├── README.md           # Project documentation
-   └── assets/             # Images and additional resources
-       └── screenshots/    # Demo images
    ```
 
 3. **Local Testing Options**
