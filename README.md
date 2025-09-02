@@ -146,7 +146,7 @@ graph TB
    iris-front/
    ├── index.html          # Main application file
    ├── style.css           # Styling and responsive design
-   ├── script.js           # JavaScript logic and API calls
+   ├── script.js           # JavaScript logic and API calls (optional if moving inline JS out of index.html)
    ├── README.md           # Project documentation
    ```
 
@@ -333,7 +333,7 @@ console.log(result.prediction); // "setosa"
 iris-front/
 ├── 📄 index.html           # Main application interface
 ├── 🎨 style.css            # Styling and responsive design
-├── ⚡ script.js            # Core JavaScript functionality
+├── ⚡ script.js            # Core JavaScript functionality (optional if moving inline JS out of index.html)
 ├── 📖 README.md            # Project documentation (this file)
 ├── 📜 LICENSE              # MIT License file
 ```
@@ -350,7 +350,7 @@ iris-front/
 - **Features**: CSS Grid/Flexbox layouts, animations, dark mode support
 - **Responsive**: Mobile-first design with breakpoints at 768px and 1024px
 
-#### `script.js`
+#### `script.js - JavaScript logic and API calls (optional if moving inline JS out of index.html)`
 - **Purpose**: Application logic and API integration
 - **Features**: Form validation, API calls, error handling, result display
 - **ES6+**: Modern JavaScript with async/await, arrow functions, destructuring
