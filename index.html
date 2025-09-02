@@ -1,22 +1,281 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Iris Flower Predictor</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-powered Iris flower species classifier using machine learning. Predict Setosa, Versicolor, or Virginica species from morphological measurements.">
+    <meta name="keywords" content="iris, flower, classifier, machine learning, AI, prediction, botany">
+    <meta name="author" content="Lovnish Verma">
+    
+    <title>🌸 Iris Flower Species Classifier | AI-Powered Botanical Prediction</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Preconnect to backend for faster API calls -->
+    <link rel="preconnect" href="https://lovnishverma-iris-backend.hf.space">
 </head>
 <body>
-  <h1>Iris Flower Predictor</h1>
+    <!-- Loading overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Analyzing flower characteristics...</p>
+        </div>
+    </div>
 
-  <form id="irisForm">
-    <label>Sepal Length: <input type="number" step="0.1" id="sepal_length" required></label><br>
-    <label>Sepal Width: <input type="number" step="0.1" id="sepal_width" required></label><br>
-    <label>Petal Length: <input type="number" step="0.1" id="petal_length" required></label><br>
-    <label>Petal Width: <input type="number" step="0.1" id="petal_width" required></label><br>
-    <button type="submit">Predict</button>
-  </form>
+    <!-- Main container -->
+    <div class="container">
+        <!-- Header section -->
+        <header class="header">
+            <div class="logo">
+                <span class="flower-icon">🌸</span>
+                <h1>Iris Species Classifier</h1>
+            </div>
+            <p class="subtitle">
+                Discover your iris flower species using AI-powered botanical analysis
+            </p>
+            <div class="species-preview">
+                <div class="species-card">
+                    <span class="species-emoji">🌺</span>
+                    <span>Setosa</span>
+                </div>
+                <div class="species-card">
+                    <span class="species-emoji">🌻</span>
+                    <span>Versicolor</span>
+                </div>
+                <div class="species-card">
+                    <span class="species-emoji">🌷</span>
+                    <span>Virginica</span>
+                </div>
+            </div>
+        </header>
 
-  <h2 id="result"></h2>
+        <!-- Main form -->
+        <main class="main-content">
+            <form id="irisForm" class="prediction-form" novalidate>
+                <div class="form-header">
+                    <h2>Enter Flower Measurements</h2>
+                    <p>Provide the morphological characteristics of your iris flower (in centimeters)</p>
+                </div>
 
-  <script src="script.js"></script>
+                <!-- Input grid -->
+                <div class="input-grid">
+                    <!-- Sepal measurements -->
+                    <div class="input-group">
+                        <label for="sepal_length" class="input-label">
+                            <span class="label-text">Sepal Length</span>
+                            <span class="label-hint">4.0 - 8.0 cm</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="number" 
+                                id="sepal_length" 
+                                name="sepal_length"
+                                step="0.1" 
+                                min="4.0" 
+                                max="8.0" 
+                                placeholder="5.1"
+                                required
+                                aria-describedby="sepal_length_error"
+                            >
+                            <span class="input-unit">cm</span>
+                        </div>
+                        <div id="sepal_length_error" class="error-message" role="alert"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="sepal_width" class="input-label">
+                            <span class="label-text">Sepal Width</span>
+                            <span class="label-hint">2.0 - 4.5 cm</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="number" 
+                                id="sepal_width" 
+                                name="sepal_width"
+                                step="0.1" 
+                                min="2.0" 
+                                max="4.5" 
+                                placeholder="3.5"
+                                required
+                                aria-describedby="sepal_width_error"
+                            >
+                            <span class="input-unit">cm</span>
+                        </div>
+                        <div id="sepal_width_error" class="error-message" role="alert"></div>
+                    </div>
+
+                    <!-- Petal measurements -->
+                    <div class="input-group">
+                        <label for="petal_length" class="input-label">
+                            <span class="label-text">Petal Length</span>
+                            <span class="label-hint">1.0 - 7.0 cm</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="number" 
+                                id="petal_length" 
+                                name="petal_length"
+                                step="0.1" 
+                                min="1.0" 
+                                max="7.0" 
+                                placeholder="1.4"
+                                required
+                                aria-describedby="petal_length_error"
+                            >
+                            <span class="input-unit">cm</span>
+                        </div>
+                        <div id="petal_length_error" class="error-message" role="alert"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="petal_width" class="input-label">
+                            <span class="label-text">Petal Width</span>
+                            <span class="label-hint">0.1 - 2.5 cm</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="number" 
+                                id="petal_width" 
+                                name="petal_width"
+                                step="0.1" 
+                                min="0.1" 
+                                max="2.5" 
+                                placeholder="0.2"
+                                required
+                                aria-describedby="petal_width_error"
+                            >
+                            <span class="input-unit">cm</span>
+                        </div>
+                        <div id="petal_width_error" class="error-message" role="alert"></div>
+                    </div>
+                </div>
+
+                <!-- Submit button -->
+                <div class="submit-section">
+                    <button type="submit" id="submitBtn" class="submit-btn">
+                        <span class="btn-text">🔍 Predict Species</span>
+                        <span class="btn-loading hidden">
+                            <span class="btn-spinner"></span>
+                            Analyzing...
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Sample data buttons -->
+                <div class="sample-data">
+                    <p class="sample-label">Try sample data:</p>
+                    <div class="sample-buttons">
+                        <button type="button" class="sample-btn" data-species="setosa">
+                            🌺 Setosa Sample
+                        </button>
+                        <button type="button" class="sample-btn" data-species="versicolor">
+                            🌻 Versicolor Sample
+                        </button>
+                        <button type="button" class="sample-btn" data-species="virginica">
+                            🌷 Virginica Sample
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Results section -->
+            <section id="resultSection" class="result-section hidden">
+                <div class="result-card">
+                    <div class="result-header">
+                        <h3>Prediction Result</h3>
+                        <button id="clearBtn" class="clear-btn" title="Clear and start over">✕</button>
+                    </div>
+                    
+                    <div class="result-content">
+                        <div class="predicted-species">
+                            <span id="speciesEmoji" class="species-emoji-large">🌸</span>
+                            <div class="species-info">
+                                <h4 id="speciesName" class="species-name">Species Name</h4>
+                                <p id="speciesLatin" class="species-latin">Scientific name</p>
+                            </div>
+                        </div>
+                        
+                        <div class="confidence-section">
+                            <div class="confidence-label">
+                                <span>Confidence:</span>
+                                <span id="confidenceValue" class="confidence-value">0%</span>
+                            </div>
+                            <div class="confidence-bar">
+                                <div id="confidenceProgress" class="confidence-progress"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="probabilities-section">
+                            <h5>Species Probabilities:</h5>
+                            <div class="probability-bars">
+                                <div class="probability-item">
+                                    <span class="prob-label">🌺 Setosa</span>
+                                    <div class="prob-bar">
+                                        <div id="setosaProb" class="prob-fill setosa"></div>
+                                    </div>
+                                    <span id="setosaPct" class="prob-value">0%</span>
+                                </div>
+                                <div class="probability-item">
+                                    <span class="prob-label">🌻 Versicolor</span>
+                                    <div class="prob-bar">
+                                        <div id="versicolorProb" class="prob-fill versicolor"></div>
+                                    </div>
+                                    <span id="versicolorPct" class="prob-value">0%</span>
+                                </div>
+                                <div class="probability-item">
+                                    <span class="prob-label">🌷 Virginica</span>
+                                    <div class="prob-bar">
+                                        <div id="virginicaProb" class="prob-fill virginica"></div>
+                                    </div>
+                                    <span id="virginicaPct" class="prob-value">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="processing-time">
+                            <small>Processing time: <span id="processingTime">-</span>ms</small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Error section -->
+            <section id="errorSection" class="error-section hidden">
+                <div class="error-card">
+                    <div class="error-icon">⚠️</div>
+                    <h3>Prediction Error</h3>
+                    <p id="errorMessage">Something went wrong. Please try again.</p>
+                    <button id="retryBtn" class="retry-btn">Try Again</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>
+                    Powered by <strong>Scikit-learn</strong> • 
+                    Hosted on <strong>Hugging Face Spaces</strong> • 
+                    Built with ❤️ by Lovnish Verma for the ML community
+                </p>
+                <div class="footer-links">
+                    <a href="https://github.com/lovnishverma/iris-front" target="_blank" rel="noopener">
+                        📚 View Source
+                    </a>
+                    <a href="https://huggingface.co/spaces/lovnishverma/iris-backend" target="_blank" rel="noopener">
+                        🔧 Backend API
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
