@@ -94,6 +94,8 @@ Make sure to update `script.js` with the correct backend URL if running your own
 
 <img width="1919" height="675" alt="image" src="https://github.com/user-attachments/assets/e2b8664d-551e-4e2f-94ee-1ab467a648cd" />
 
+---
+
 ![Demo Screenshot](https://github.com/user-attachments/assets/bf2d124e-592e-49a2-8c6f-b7adab049df6)
 
 ---
