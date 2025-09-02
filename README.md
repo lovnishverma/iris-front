@@ -100,15 +100,4 @@ Make sure to update `script.js` with the correct backend URL if running your own
 
 MIT License – free to use and modify.
 
-```
-
----
-
-✨ This README makes it clear:  
-- What the project does.  
-- Where the **frontend** and **backend** are deployed.  
-- How to run locally.  
-- API details.  
-- Demo screenshot.  
-
 ---
