@@ -678,7 +678,7 @@ copies of the Software...
 
 ## 📱 Screenshots
 
-### BACKEND - FRONTEND (Side-by-Side)
+### FRONTEND - BACKEND (Side-by-Side)
 
 ![Desktop Interface](https://github.com/user-attachments/assets/1cc6b6c9-0c9a-4613-8e64-39a0d8b77cc1)
 
