@@ -3,11 +3,7 @@
 A simple **static web app** (HTML + CSS + JavaScript) hosted on **GitHub Pages** that predicts the species of an Iris flower using a **Flask backend API** deployed on Hugging Face Spaces.  
 
 👉 **Live Demo:** [Iris Classifier Frontend](https://lovnishverma.github.io/iris-front/)  
-👉 **Backend API:** [Hugging Face Space](https://huggingface.co/spaces/lovnishverma/iris-backend)  
-
-
-<img width="1919" height="675" alt="image" src="https://github.com/user-attachments/assets/e2b8664d-551e-4e2f-94ee-1ab467a648cd" />
-
+👉 **Backend API:** [Hugging Face Space](https://huggingface.co/spaces/lovnishverma/iris-backend)
 
 ---
 
@@ -95,6 +91,8 @@ Make sure to update `script.js` with the correct backend URL if running your own
 ---
 
 ## 📸 Demo Screenshot
+
+<img width="1919" height="675" alt="image" src="https://github.com/user-attachments/assets/e2b8664d-551e-4e2f-94ee-1ab467a648cd" />
 
 ![Demo Screenshot](https://github.com/user-attachments/assets/bf2d124e-592e-49a2-8c6f-b7adab049df6)
 
