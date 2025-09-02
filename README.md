@@ -5,6 +5,10 @@ A simple **static web app** (HTML + CSS + JavaScript) hosted on **GitHub Pages**
 👉 **Live Demo:** [Iris Classifier Frontend](https://lovnishverma.github.io/iris-front/)  
 👉 **Backend API:** [Hugging Face Space](https://huggingface.co/spaces/lovnishverma/iris-backend)  
 
+
+<img width="1919" height="675" alt="image" src="https://github.com/user-attachments/assets/e2b8664d-551e-4e2f-94ee-1ab467a648cd" />
+
+
 ---
 
 ## 🚀 How it works
