@@ -624,7 +624,7 @@ Classification Report:
 
 - **Issues**: [GitHub Issues](https://github.com/lovnishverma/iris-front/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/lovnishverma/iris-front/discussions)
-- **Email**: [your-email@example.com](mailto:your-email@example.com)
+- **Email**: [princelv84@gmail.com](mailto:princelv84@gmail.com)
 
 ### FAQ
 
@@ -690,8 +690,8 @@ copies of the Software...
 
 **⭐ If you found this project helpful, please consider giving it a star on GitHub! ⭐**
 
-[🌸 Visit Live Demo](https://lovnishverma.github.io/iris-front/) | [🔧 View Backend](https://huggingface.co/spaces/lovnishverma/iris-backend) | [📧 Contact Developer](mailto:your-email@example.com)
+[🌸 Visit Live Demo](https://lovnishverma.github.io/iris-front/) | [🔧 View Backend](https://huggingface.co/spaces/lovnishverma/iris-backend) | [📧 Contact Developer](mailto:princelv84@gmail.com)
 
-*Built with ❤️ for the machine learning community*
+*Built with ❤️ by Lovnish Verma for the machine learning community*
 
 </div>
